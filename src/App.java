@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class App {
 
-    static int[][][][] detes;
+    static int[][][][] detes = new int[3][3][3][3];
     static ArrayList<Integer>[] poss = new ArrayList[81];
     static int cow = 0;
 
@@ -20,19 +20,19 @@ public class App {
 
     public static void run(){
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("gimma dem values");
+        // Scanner in = new Scanner(System.in);
+        // System.out.println("gimma dem values");
 
-        String input = in.nextLine();
-        String ex1 = "0 5 3 0 0 8 4 9 0 2 8 4 3 9 6 0 0 7 0 9 6 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 2 8 3 0 5 0 0 0 0 0 2 0 0 6 1 0 0 7 4 1 8 5 9 6 2 0 0 8 7 6 0 0 1 0 0 6 0 0 0 9 0 7 8";
-        String ex2 = "0 0 2 0 6 0 4 0 0 0 0 4 0 0 5 0 7 8 5 0 0 0 7 0 0 0 3 2 7 1 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 7 1 9 5 0 0 0 4 0 0 0 6 8 3 0 2 0 0 1 0 0 0 0 2 0 6 0 8 0 0";
-        String ex3 = "0 0 0 0 8 7 0 1 3 0 0 0 4 0 0 0 0 0 0 0 1 2 3 0 4 0 7 0 0 5 0 0 4 0 6 2 0 0 2 5 0 9 3 0 0 1 7 0 6 0 0 5 0 0 7 0 9 0 5 1 2 0 0 0 0 0 0 0 7 0 0 0 3 1 0 9 8 0 0 0 0";
-        String ex4 = "8 0 0 3 9 0 0 5 0 9 0 5 0 0 0 0 6 0 0 0 3 0 4 0 8 1 0 2 0 1 0 8 9 0 0 3 3 5 6 0 7 0 8 2 9 4 0 0 2 0 0 7 0 0 0 2 0 0 4 0 6 0 0 0 8 0 0 0 0 4 0 7 0 6 0 0 8 0 0 0 5";
+        // String input = in.nextLine();
+        // String ex1 = "0 5 3 0 0 8 4 9 0 2 8 4 3 9 6 0 0 7 0 9 6 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 2 8 3 0 5 0 0 0 0 0 2 0 0 6 1 0 0 7 4 1 8 5 9 6 2 0 0 8 7 6 0 0 1 0 0 6 0 0 0 9 0 7 8";
+        // String ex2 = "0 0 2 0 6 0 4 0 0 0 0 4 0 0 5 0 7 8 5 0 0 0 7 0 0 0 3 2 7 1 0 0 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 7 1 9 5 0 0 0 4 0 0 0 6 8 3 0 2 0 0 1 0 0 0 0 2 0 6 0 8 0 0";
+        // String ex3 = "0 0 0 0 8 7 0 1 3 0 0 0 4 0 0 0 0 0 0 0 1 2 3 0 4 0 7 0 0 5 0 0 4 0 6 2 0 0 2 5 0 9 3 0 0 1 7 0 6 0 0 5 0 0 7 0 9 0 5 1 2 0 0 0 0 0 0 0 7 0 0 0 3 1 0 9 8 0 0 0 0";
+        // String ex4 = "8 0 0 3 9 0 0 5 0 9 0 5 0 0 0 0 6 0 0 0 3 0 4 0 8 1 0 2 0 1 0 8 9 0 0 3 3 5 6 0 7 0 8 2 9 4 0 0 2 0 0 7 0 0 0 2 0 0 4 0 6 0 0 0 8 0 0 0 0 4 0 7 0 6 0 0 8 0 0 0 5";
 
         //String[] base = input.split(" ");
-        String[] base = ex3.split(" ");
+        // String[] base = ex3.split(" ");
 
-        detes = gatherInput(base);
+        // gatherInput(base);
 
         // for (int i=0;i<81;i++){
         //     poss[i] = new ArrayList<Integer>();
@@ -52,24 +52,23 @@ public class App {
             }
         }
 
-        for(int i=0; i<3;i++){
-            for(int j=0;j<3;j++){
-                for(int k=0;k<3;k++){
-                    for(int l=0;l<3;l++){
-                        System.out.print(detes[i][k][j][l] + " ");
-                    }
-                }
-                System.out.println();
-            }
-        }
+        // for(int i=0; i<3;i++){
+        //     for(int j=0;j<3;j++){
+        //         for(int k=0;k<3;k++){
+        //             for(int l=0;l<3;l++){
+        //                 System.out.print(detes[i][k][j][l] + " ");
+        //             }
+        //         }
+        //         System.out.println();
+        //     }
+        // }
 
         System.out.println("\n");
-        solve();
+        // solve();
 
     }
 
-    public static int[][][][] gatherInput(String[] input){
-        int[][][][] detes = new int[3][3][3][3];
+    public static void gatherInput(String[] input){
         int a = 0;
         for(int i=0; i<3;i++){
             for(int j=0;j<3;j++){
@@ -81,7 +80,6 @@ public class App {
                 }
             }
         }
-        return detes;
     }
 
     public static void solve(){

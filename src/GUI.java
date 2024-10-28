@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -10,20 +12,29 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class GUI implements ActionListener {
 
+    JFrame frame = new JFrame();
+    JPanel panel = new JPanel();
+
+    JTable board = new JTable(9, 9);
+
     public GUI(){
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
         
+        board.setShowGrid(true);
+
         // JTextField[] grid = new JTextField[9];
-        JTextField uno = new JTextField();
+        // JTextField uno = new JTextField();
+
         JLabel L1 = new JLabel("Gimma dem values");
+
         JButton submit = new JButton("Solve");
-
-
+        submit.setSize(20,10);
+        submit.setPreferredSize(new Dimension(20,10));
+        submit.setMaximumSize(new Dimension(20,10));
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,30,30));
         panel.setLayout(new GridLayout());
         
@@ -36,7 +47,8 @@ public class GUI implements ActionListener {
         frame.setSize(500,500);
 
         panel.add(L1);
-        panel.add(uno);
+        // panel.add(uno);
+        panel.add(board);
         panel.add(submit);
 
         submit.addMouseListener(new MouseAdapter(){
@@ -66,7 +78,8 @@ public class GUI implements ActionListener {
 
         App.gatherInput(base);
         tempdisplayinput();
-        App.solve();
+        int[][][][] output = App.solve();
+        displayOutput(output);
     }
 
     public void tempdisplayinput(){
@@ -81,6 +94,22 @@ public class GUI implements ActionListener {
             }
         }
         System.out.println();
+    }
+
+    public void displayOutput(int[][][][] output){
+
+        int count = 0;
+
+        for(int i=0; i<9; i++){
+            for(int j=0; j<9; j++){
+                String val = Integer.toString(count, 3);
+                val = String.format("%4s", val);
+                val = val.replace(' ', '0');
+                board.setValueAt(output[Character.getNumericValue(val.charAt(0))][Character.getNumericValue(val.charAt(1))][Character.getNumericValue(val.charAt(2))][Character.getNumericValue(val.charAt(3))], i, j);
+                count++;
+            }
+        }
+
     }
 
 }

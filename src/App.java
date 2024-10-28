@@ -82,7 +82,7 @@ public class App {
         }
     }
 
-    public static void solve(){
+    public static int[][][][] solve(){
         int fin = 0;
         while(fin==0 && cow<=162){
             fin = 1;
@@ -113,6 +113,8 @@ public class App {
                 System.out.println();
             }
         }
+
+        return detes;
         
     }
 

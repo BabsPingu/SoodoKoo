@@ -74,7 +74,7 @@ public class App {
             for(int j=0;j<3;j++){
                 for(int k=0;k<3;k++){
                     for(int l=0;l<3;l++){
-                        detes[i][j][k][l] = Integer.parseInt(input[a]);
+                        detes[i][k][j][l] = Integer.parseInt(input[a]);
                         a++;
                     }
                 }
